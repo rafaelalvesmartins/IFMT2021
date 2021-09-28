@@ -1,0 +1,14 @@
+package test.edu.br.ifmt.qacademico;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class alunoDestaque {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

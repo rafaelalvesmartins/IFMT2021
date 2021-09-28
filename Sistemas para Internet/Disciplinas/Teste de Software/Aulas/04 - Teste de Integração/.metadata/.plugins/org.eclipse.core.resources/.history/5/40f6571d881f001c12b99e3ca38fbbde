@@ -1,0 +1,90 @@
+package edu.br.ifmt.dao;
+
+import java.util.Set;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import antlr.collections.List;
+import edu.br.ifmt.model.Aluno;
+
+public class AlunoDAO {
+	private static AlunoDAO instance;
+    protected EntityManager entityManager;
+    
+    public static AlunoDAO getInstance(){
+        if (instance == null){
+           instance = new AlunoDAO();
+        }
+        return instance;
+    }
+    
+    private AlunoDAO() {
+        entityManager = getEntityManager();
+      }
+    
+    
+    private EntityManager getEntityManager() {
+        EntityManagerFactory factory =
+        Persistence.createEntityManagerFactory("qAcademico");
+        if (entityManager == null) {
+          entityManager = factory.createEntityManager();
+        }
+
+        return entityManager;
+       }
+    
+    public Aluno getById(final int id) {
+        return entityManager.find(Aluno.class, id);
+     }
+    
+    @SuppressWarnings("unchecked")
+    public Set<Aluno> findAll() {
+      return (Set<Aluno>) entityManager.createQuery("FROM " +
+    		  Aluno.class.getName()).getResultList();
+    }
+    
+    public void persist(Aluno aluno) {
+        try {
+           entityManager.getTransaction().begin();
+           entityManager.persist(aluno);
+           entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+           ex.printStackTrace();
+           entityManager.getTransaction().rollback();
+        }
+      }
+    
+    public void merge(Aluno aluno) {
+        try {
+           entityManager.getTransaction().begin();
+           entityManager.merge(aluno);
+           entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+           ex.printStackTrace();
+           entityManager.getTransaction().rollback();
+        }
+      }
+    
+    public void remove(Aluno aluno) {
+        try {
+           entityManager.getTransaction().begin();
+           aluno = entityManager.find(Aluno.class, aluno.getId());
+           entityManager.remove(aluno);
+           entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+           ex.printStackTrace();
+           entityManager.getTransaction().rollback();
+        }
+      }
+    
+    public void removeById(final int id) {
+        try {
+           Aluno aluno = getById(id);
+           remove(aluno);
+        } catch (Exception ex) {
+           ex.printStackTrace();
+        }
+      }
+}

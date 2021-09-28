@@ -21,12 +21,15 @@ public class FrequenciaService {
 	
 	public double retornaMediaFrequencia() {
 		List<Frequencia>  todasFrequencias =  dao.findAll();
-		int soma = 0;
-		for(Frequencia frequencia : todasFrequencias) {
-			if(!frequencia.getFalta())
-				soma +=1;
+		if (todasFrequencias.size() > 0 ) {
+			int soma = 0;
+			for(Frequencia frequencia : todasFrequencias) {
+				if(!frequencia.getFalta())
+					soma +=1;
+			}
+			double media = soma / todasFrequencias.size();
+			return media;
 		}
-		double media = soma / todasFrequencias.size();
-		return media;
+		return 0;
 	}
 }

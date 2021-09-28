@@ -1,0 +1,26 @@
+package edu.br.ifmt.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Nota {
+	
+	@Id
+	private Long id;
+
+	public Nota(Long id) {
+		super();
+		this.id = id;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+
+}

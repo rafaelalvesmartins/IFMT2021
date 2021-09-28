@@ -1,0 +1,150 @@
+package test.edu.br.ifmt.qacademico;
+
+
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+import main.edu.br.ifmt.model.entity.*;
+import main.edu.br.ifmt.model.service.AlunoService;
+import main.edu.br.ifmt.model.service.FrequenciaService;
+import main.edu.br.ifmt.model.service.NotaService;
+import main.edu.br.ifmt.qacademico.AlunoDestaque;
+
+public class AlunoDestaqueTest {
+
+	
+	@Ignore
+	public void testeUnitario() {
+		
+		// Aluno Rafael
+		Aluno alunoRafael = new Aluno();
+		alunoRafael.setNome("Rafael");
+		
+		// Frequência
+		Calendar calendar = Calendar.getInstance();
+		
+		calendar.set(2021, 9, 29);
+		Frequencia frequenciaRafaelDia1 = new Frequencia();
+		frequenciaRafaelDia1.setData(calendar);
+		frequenciaRafaelDia1.setFalta(true);
+		
+		calendar.set(2021, 10, 04);
+		Frequencia frequenciaRafaelDia2 = new Frequencia();
+		frequenciaRafaelDia2.setData(calendar);
+		frequenciaRafaelDia2.setFalta(false);
+		
+		Set<Frequencia> frenquenciasRafael = new HashSet<Frequencia>();
+		frenquenciasRafael.add(frequenciaRafaelDia1);
+		frenquenciasRafael.add(frequenciaRafaelDia2);
+		
+		alunoRafael.setFrequencias(frenquenciasRafael);
+		
+		// Nota
+		Nota nota1Rafael = new Nota();
+		nota1Rafael.setNota(10);
+		Nota nota2Rafael = new Nota();
+		nota2Rafael.setNota(5);
+		
+		Set<Nota> notasRafael = new HashSet<Nota>();
+		notasRafael.add(nota1Rafael);
+		notasRafael.add(nota2Rafael);
+		
+		alunoRafael.setNotas(notasRafael); // Nota 7.5, frequencia 50, Limite media turma nota turma igual inferior 6.25 e frequencia turma menor igual 41.667
+				
+			
+				
+		AlunoDestaque alunoDestaque =  new AlunoDestaque();
+		double fator = 1.2;
+		
+		
+		// Caso 1
+		
+		double mediaFrequenciaTurma = 42;
+		double mediaNotaTurma = 6.30;
+		
+		alunoDestaque.setAluno(alunoRafael);
+		alunoDestaque.setFator(fator);
+		alunoDestaque.setMediaFrequenciaTurma(mediaFrequenciaTurma);
+		alunoDestaque.setMediaNotaTurma(mediaNotaTurma);
+				
+		
+		assertFalse(alunoDestaque.alunoEhDestaque());
+		
+		
+	    // Caso 2
+		
+		mediaFrequenciaTurma = 41;
+		mediaNotaTurma = 6.30;
+		alunoDestaque.setMediaFrequenciaTurma(mediaFrequenciaTurma);
+		alunoDestaque.setMediaNotaTurma(mediaNotaTurma);
+				
+		
+		assertFalse(alunoDestaque.alunoEhDestaque());
+		
+		
+		// Caso 3
+		
+		mediaFrequenciaTurma = 42;
+		mediaNotaTurma = 6.2;
+		alunoDestaque.setMediaFrequenciaTurma(mediaFrequenciaTurma);
+		alunoDestaque.setMediaNotaTurma(mediaNotaTurma);
+				
+		
+		assertFalse(alunoDestaque.alunoEhDestaque());
+		
+		// Caso 4
+		
+		mediaFrequenciaTurma = 41;
+		mediaNotaTurma = 6.2;
+		alunoDestaque.setMediaFrequenciaTurma(mediaFrequenciaTurma);
+		alunoDestaque.setMediaNotaTurma(mediaNotaTurma);
+				
+		
+		assertTrue(alunoDestaque.alunoEhDestaque());
+		
+	}
+	
+	
+	@Test
+	public void testeIntegracao() {
+		
+		
+		AlunoService alunoService = new AlunoService();
+		FrequenciaService frequenciaService = new FrequenciaService();
+		NotaService notaService = new NotaService();
+		
+		
+		List<Aluno> todosAlunos = alunoService.retornaTodosAlunos();
+		int qtdAtual = todosAlunos.size();
+		
+		
+		assertEquals(2, 0);
+		
+//		double fator = 1.2 ;
+//		
+//		Aluno alunoRafael = alunoService.retornaAlunoId(1);
+//		double mediaNotaTurma = notaService.retornaMediaNotas();
+//		double mediaFrequenciaTurma = frequenciaService.retornaMediaFrequencia();
+//		
+//		AlunoDestaque alunoDestaque =  new AlunoDestaque();
+//		alunoDestaque.setAluno(alunoRafael);
+//		alunoDestaque.setFator(fator);
+//		alunoDestaque.setMediaFrequenciaTurma(mediaFrequenciaTurma);
+//		alunoDestaque.setMediaNotaTurma(mediaNotaTurma);
+//				
+//		
+//		assertTrue(alunoDestaque.alunoEhDestaque());
+		
+	}
+
+}

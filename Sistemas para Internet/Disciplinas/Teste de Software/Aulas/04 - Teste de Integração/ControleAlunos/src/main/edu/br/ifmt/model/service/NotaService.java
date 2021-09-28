@@ -23,11 +23,15 @@ public class NotaService {
 	
 	public double retornaMediaNotas() {
 		List<Nota>  todasNotas =  dao.findAll();
-		int soma = 0;
-		for(Nota nota : todasNotas) {
-				soma += nota.getNota();
+		
+		if (todasNotas.size() >0) {
+			int soma = 0;
+			for(Nota nota : todasNotas) {
+					soma += nota.getNota();
+			}
+			double media = soma / todasNotas.size();
+			return media;
 		}
-		double media = soma / todasNotas.size();
-		return media;
+		return 0;
 	}
 }

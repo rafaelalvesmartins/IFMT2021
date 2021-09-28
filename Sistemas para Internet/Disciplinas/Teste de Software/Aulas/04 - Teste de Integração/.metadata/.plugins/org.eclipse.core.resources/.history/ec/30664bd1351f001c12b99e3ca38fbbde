@@ -1,0 +1,13 @@
+package edu.br.ifmt.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Aluno {
+
+	@Id
+	private Long Id;
+	
+	private String nome;
+}

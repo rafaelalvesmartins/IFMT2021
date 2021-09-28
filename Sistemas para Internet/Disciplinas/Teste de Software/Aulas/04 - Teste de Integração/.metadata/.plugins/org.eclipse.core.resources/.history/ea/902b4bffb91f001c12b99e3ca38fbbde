@@ -1,0 +1,5 @@
+package test.edu.br.ifmt.dao;
+
+public class AlunoDAOTest {
+
+}

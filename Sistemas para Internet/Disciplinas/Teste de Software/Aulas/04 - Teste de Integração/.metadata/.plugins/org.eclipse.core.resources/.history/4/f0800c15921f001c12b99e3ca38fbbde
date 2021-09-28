@@ -1,0 +1,27 @@
+package edu.br.ifmt.model.service;
+
+import org.hibernate.mapping.Set;
+
+import edu.br.ifmt.model.dao.FrequenciaDAO;
+import edu.br.ifmt.model.entity.*;
+
+public class FrequenciaService {
+	private FrequenciaDAO dao;
+	
+	public FrequenciaService() {
+		this.dao = FrequenciaDAO.getInstance();
+	}
+		
+	public Frequencia retornaFrequenciaId(int id) {
+		return dao.getById(id);
+	}
+	
+	public void salvar(Frequencia frequencia) {
+		dao.persist(frequencia);
+	}
+	
+	public void retornaMediaFrequencia() {
+		Set<Frequencia>  frequenciasTotais = dao.findAll();
+		
+	}
+}

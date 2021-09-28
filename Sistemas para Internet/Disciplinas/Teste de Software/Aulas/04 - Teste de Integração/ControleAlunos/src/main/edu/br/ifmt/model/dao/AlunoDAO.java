@@ -1,6 +1,7 @@
 package main.edu.br.ifmt.model.dao;
 
-import java.util.Set;
+import java.util.List;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -39,8 +40,8 @@ public class AlunoDAO {
      }
     
     @SuppressWarnings("unchecked")
-    public Set<Aluno> findAll() {
-      return (Set<Aluno>) entityManager.createQuery("FROM " +
+    public List<Aluno> findAll() {
+      return  entityManager.createQuery("FROM " +
     		  Aluno.class.getName()).getResultList();
     }
     

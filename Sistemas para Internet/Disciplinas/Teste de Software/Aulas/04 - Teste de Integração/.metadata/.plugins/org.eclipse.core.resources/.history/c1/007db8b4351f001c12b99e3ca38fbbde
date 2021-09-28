@@ -1,0 +1,5 @@
+package edu.br.ifmt.model;
+
+public class Nota {
+
+}
