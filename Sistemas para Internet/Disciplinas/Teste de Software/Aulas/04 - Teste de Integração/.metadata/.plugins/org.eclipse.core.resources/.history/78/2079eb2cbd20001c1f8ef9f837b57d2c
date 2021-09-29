@@ -1,0 +1,93 @@
+package main.edu.br.ifmt.qacademico;
+
+import main.edu.br.ifmt.model.entity.Aluno;
+
+public class AlunoDestaque {
+	
+	private Aluno aluno;
+	private double mediaNotaTurma, mediaFrequenciaTurma, fator;
+	
+	
+	public boolean alunoEhDestaque() {
+		
+		double notaRef = fator*mediaNotaTurma;
+		double freqRef = fator *mediaFrequenciaTurma;
+		
+		if (aluno.calculaMediaNota() >= notaRef && aluno.calculaMediaFrequencia() >= freqRef)
+			return true;
+		
+		return false;
+	}
+		
+
+	
+
+	public AlunoDestaque() {
+		super();
+	}
+
+
+
+
+	public AlunoDestaque(Aluno aluno, double mediaNotaTurma, double mediaFrequenciaTurma, double fator) {
+		super();
+		this.aluno = aluno;
+		this.mediaNotaTurma = mediaNotaTurma;
+		this.mediaFrequenciaTurma = mediaFrequenciaTurma;
+		this.fator = fator;
+	}
+
+
+
+
+
+
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+
+	public double getMediaNotaTurma() {
+		return mediaNotaTurma;
+	}
+
+
+	public void setMediaNotaTurma(double mediaNotaTurma) {
+		this.mediaNotaTurma = mediaNotaTurma;
+	}
+
+
+	public double getMediaFrequenciaTurma() {
+		return mediaFrequenciaTurma;
+	}
+
+
+	public void setMediaFrequenciaTurma(double mediaFrequenciaTurma) {
+		this.mediaFrequenciaTurma = mediaFrequenciaTurma;
+	}
+
+
+
+
+	public double getFator() {
+		return fator;
+	}
+
+
+	public void setFator(double fator) {
+		this.fator = fator;
+	}
+	
+	
+	
+	
+	 
+	
+
+}

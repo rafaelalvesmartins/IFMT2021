@@ -1,0 +1,23 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+         version="2.0">
+<persistence-unit name="qAcademico">
+  <provider>org.hibernate.ejb.HibernatePersistence</provider>
+  <class>edu.br.ifmt.model.Aluno</class>
+  <class>edu.br.ifmt.model.Frequencia</class>
+  <class>edu.br.ifmt.model.Nota</class>
+  <properties>
+     <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+     <property name="hibernate.connection.password" value=""/>
+     <property name="hibernate.connection.url" value="jdbc:mysql://localhost/qacademico?createDatabaseIfNotExist=true&amp;serverTimezone=UTC"/>
+     <property name="hibernate.connection.username" value="root"/>
+     <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"></property>
+     
+      <property name="hibernate.hbm2ddl.auto" value="update"/>  
+     <property name="hibernate.show_sql" value="false"/>
+     <property name="hibernate.format_sql" value="true"/>
+     
+   </properties>
+  </persistence-unit>
+</persistence>

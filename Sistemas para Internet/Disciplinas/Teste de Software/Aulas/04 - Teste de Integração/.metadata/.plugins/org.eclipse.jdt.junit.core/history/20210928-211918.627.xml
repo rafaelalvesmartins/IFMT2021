@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AlunoTest" project="ControleAlunos" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="test.edu.br.ifmt.entity.AlunoTest" time="0.036">
+    <testcase name="testarFrequenciaAluno" classname="test.edu.br.ifmt.entity.AlunoTest" time="0.035"/>
+    <testcase name="testarMediaNotaAluno" classname="test.edu.br.ifmt.entity.AlunoTest" time="0.001"/>
+  </testsuite>
+</testrun>

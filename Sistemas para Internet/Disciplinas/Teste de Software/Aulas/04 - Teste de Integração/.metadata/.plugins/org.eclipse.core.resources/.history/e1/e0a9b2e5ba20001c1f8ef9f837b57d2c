@@ -59,7 +59,7 @@ public class AlunoTest {
 	
 	@Test
 	public void testarMediaNotaAluno() {
-		assertEquals(7d, alunoRafael.calculaMediaNota(),0.0001);
+		assertEquals(7, alunoRafael.calculaMediaNota(),0.0001);
 	}
 	
 	@Test

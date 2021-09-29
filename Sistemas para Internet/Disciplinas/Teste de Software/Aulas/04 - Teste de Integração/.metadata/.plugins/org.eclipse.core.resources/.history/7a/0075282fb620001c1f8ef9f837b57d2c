@@ -8,9 +8,11 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Calendar;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
@@ -69,7 +71,6 @@ public class AlunoDestaqueTest {
 		
 	}
 	
-	/*
 	@Test
 	public void testeUnitario() {
 		
@@ -123,7 +124,7 @@ public class AlunoDestaqueTest {
 		
 		assertTrue(alunoDestaque.alunoEhDestaque());
 		
-	}*/
+	}
 	
 	
 	@Test
@@ -146,8 +147,8 @@ public class AlunoDestaqueTest {
 		
 		alunoDestaque.setAluno(alunoRafael);
 		alunoDestaque.setFator(fator);
-		alunoDestaque.setFrequenciaService(frequenciaService);
-		alunoDestaque.setNotaService(notaService);
+		alunoDestaque.setMediaFrequenciaTurma(frequenciaService.retornaMediaFrequencia());
+		alunoDestaque.setMediaNotaTurma(notaService.retornaMediaNotas());
 				
 		
 		assertFalse(alunoDestaque.alunoEhDestaque());
@@ -160,9 +161,8 @@ public class AlunoDestaqueTest {
 		
 		alunoDestaque.setAluno(alunoRafael);
 		alunoDestaque.setFator(fator);
-		alunoDestaque.setFrequenciaService(frequenciaService);
-		alunoDestaque.setNotaService(notaService);
-				
+		alunoDestaque.setMediaFrequenciaTurma(frequenciaService.retornaMediaFrequencia());
+		alunoDestaque.setMediaNotaTurma(notaService.retornaMediaNotas());
 				
 		
 		assertFalse(alunoDestaque.alunoEhDestaque());
@@ -176,9 +176,8 @@ public class AlunoDestaqueTest {
 		
 		alunoDestaque.setAluno(alunoRafael);
 		alunoDestaque.setFator(fator);
-		alunoDestaque.setFrequenciaService(frequenciaService);
-		alunoDestaque.setNotaService(notaService);
-				
+		alunoDestaque.setMediaFrequenciaTurma(frequenciaService.retornaMediaFrequencia());
+		alunoDestaque.setMediaNotaTurma(notaService.retornaMediaNotas());
 				
 		
 		assertFalse(alunoDestaque.alunoEhDestaque());
@@ -192,13 +191,11 @@ public class AlunoDestaqueTest {
 		
 		alunoDestaque.setAluno(alunoRafael);
 		alunoDestaque.setFator(fator);
-		alunoDestaque.setFrequenciaService(frequenciaService);
-		alunoDestaque.setNotaService(notaService);
-				
+		alunoDestaque.setMediaFrequenciaTurma(frequenciaService.retornaMediaFrequencia());
+		alunoDestaque.setMediaNotaTurma(notaService.retornaMediaNotas());
 		
 		
 		assertTrue(alunoDestaque.alunoEhDestaque());
-		
 		verify(frequenciaService,times(4)).retornaMediaFrequencia();
 		verify(notaService,times(4)).retornaMediaNotas();
 		
@@ -214,20 +211,14 @@ public class AlunoDestaqueTest {
 		
 			
 		Aluno alunoRafael = alunoService.retornaAlunoId(1); // Nota 7, Frequencia 50
-		
-		
-		
-//		double mediaNotaTurma = notaService.retornaMediaNotas(); // Nota 7,25
-//		double mediaFrequenciaTurma = frequenciaService.retornaMediaFrequencia(); // Frequencia 50
+		double mediaNotaTurma = notaService.retornaMediaNotas(); // Nota 7,25
+		double mediaFrequenciaTurma = frequenciaService.retornaMediaFrequencia(); // Frequencia 50
 		
 		AlunoDestaque alunoDestaque =  new AlunoDestaque();
 		alunoDestaque.setAluno(alunoRafael);
 		alunoDestaque.setFator(fator);
-		alunoDestaque.setFrequenciaService(frequenciaService);
-		alunoDestaque.setNotaService(notaService);
-		
-		
-		 // Nota menor que a média
+		alunoDestaque.setMediaFrequenciaTurma(mediaFrequenciaTurma);
+		alunoDestaque.setMediaNotaTurma(mediaNotaTurma); // Nota menor que a média
 				
 		
 		assertFalse(alunoDestaque.alunoEhDestaque());

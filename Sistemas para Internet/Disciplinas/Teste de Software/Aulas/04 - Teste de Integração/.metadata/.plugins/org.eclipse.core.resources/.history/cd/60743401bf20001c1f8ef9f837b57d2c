@@ -227,7 +227,7 @@ public class AlunoDestaqueTest {
 		alunoDestaque.setNotaService(notaService);
 		
 		
-		 // Nota menor que a média
+		; // Nota menor que a média
 				
 		
 		assertFalse(alunoDestaque.alunoEhDestaque());

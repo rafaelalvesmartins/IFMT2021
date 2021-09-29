@@ -14,9 +14,7 @@ public class AlunoDestaque {
 	
 	
 	public boolean alunoEhDestaque() {
-		double mediaNotaTurma = notaService.retornaMediaNotas();
-		double mediaFrequenciaTurma = frequenciaService.retornaMediaFrequencia();
-				
+		
 		double notaRef = fator*mediaNotaTurma;
 		double freqRef = fator *mediaFrequenciaTurma;
 		
