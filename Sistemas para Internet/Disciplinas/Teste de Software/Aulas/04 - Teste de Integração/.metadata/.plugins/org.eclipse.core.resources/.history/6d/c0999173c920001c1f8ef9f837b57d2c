@@ -294,25 +294,4 @@ public class AlunoDestaqueTest {
 		assertEquals(0, alunosDestaques.size());
 		
 	}
-	
-	
-	@Test
-	public void testeIntegracaoListarTodosAlunosDestaques() {
-		
-		
-		FrequenciaService frequenciaService = new FrequenciaService();
-		NotaService notaService = new NotaService();
-		AlunoService alunoService = new AlunoService();
-		
-		
-		AlunoDestaque alunoDestaque = new AlunoDestaque();
-		alunoDestaque.setAlunoService(alunoService);
-		alunoDestaque.setFrequenciaService(frequenciaService);
-		alunoDestaque.setNotaService(notaService);
-		
-		List<Aluno> alunosDestaques = alunoDestaque.retornaAlunosDestaques();
-		
-		assertEquals(0, alunosDestaques.size());
-		
-	}
 }

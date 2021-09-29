@@ -1,23 +1,19 @@
 package main.edu.br.ifmt.qacademico;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import main.edu.br.ifmt.model.entity.Aluno;
-import main.edu.br.ifmt.model.service.AlunoService;
 import main.edu.br.ifmt.model.service.FrequenciaService;
 import main.edu.br.ifmt.model.service.NotaService;
 
 public class AlunoDestaque {
 	
-	
+	private Aluno aluno;
 	private double fator;
 	private NotaService notaService;
 	private FrequenciaService frequenciaService;
-	private AlunoService alunoService;
 	
 	
-	public boolean alunoEhDestaque(Aluno aluno) {
+	
+	public boolean alunoEhDestaque() {
 		double mediaNotaTurma = notaService.retornaMediaNotas();
 		double mediaFrequenciaTurma = frequenciaService.retornaMediaFrequencia();
 				
@@ -30,20 +26,7 @@ public class AlunoDestaque {
 		return false;
 	}
 		
-	public List<Aluno> retornaAlunosDestaques(){
-		
-		
-		List<Aluno> todosAlunos = alunoService.retornaTodosAlunos();
-		List<Aluno> todosAlunosDestaques = new ArrayList<Aluno>();
-		boolean ehDestaque;
-		for(Aluno aluno:todosAlunos) {
-			ehDestaque = alunoEhDestaque(aluno);
-			if(ehDestaque)
-				todosAlunosDestaques.add(aluno);
-		}
-		return todosAlunosDestaques;
-		
-	}
+
 	
 
 	public AlunoDestaque() {
@@ -51,6 +34,18 @@ public class AlunoDestaque {
 	}
 
 
+
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+
+
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
 
 
 
@@ -93,16 +88,6 @@ public class AlunoDestaque {
 	public void setFrequenciaService(FrequenciaService frequenciaService) {
 		this.frequenciaService = frequenciaService;
 	}
-
-	public AlunoService getAlunoService() {
-		return alunoService;
-	}
-
-	public void setAlunoService(AlunoService alunoService) {
-		this.alunoService = alunoService;
-	}
-	
-	
 
 
 	

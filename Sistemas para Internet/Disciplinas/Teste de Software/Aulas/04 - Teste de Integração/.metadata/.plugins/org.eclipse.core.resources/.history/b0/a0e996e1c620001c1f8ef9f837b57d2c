@@ -6,10 +6,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.junit.Before;
@@ -24,7 +22,7 @@ import main.edu.br.ifmt.qacademico.AlunoDestaque;
 
 public class AlunoDestaqueTest {
 
-	private Aluno alunoRafael, alunoRodrigo;
+	private Aluno alunoRafael;
 	double fator;
 	
 	@Before
@@ -67,37 +65,7 @@ public class AlunoDestaqueTest {
 		
 		alunoRafael.setNotas(notasRafael); // Nota 7.5, frequencia 50, Limite media turma nota turma igual inferior 6.25 e frequencia turma menor igual 41.667
 				
-		// Aluno Rodrigo	
-		Aluno alunoRodrigo = new Aluno();
-		alunoRodrigo.setNome("Rodrigo");
 		
-		calendar.set(2021, 9, 29);
-		Frequencia frequenciaRodrigoDia1 = new Frequencia();
-		frequenciaRodrigoDia1.setData(calendar);
-		frequenciaRodrigoDia1.setFalta(false);
-		
-		calendar.set(2021, 10, 04);
-		Frequencia frequenciaRodrigoDia2 = new Frequencia();
-		frequenciaRodrigoDia2.setData(calendar);
-		frequenciaRodrigoDia2.setFalta(true);
-		
-		Set<Frequencia> frenquenciasRodrigo = new HashSet<Frequencia>();
-		frenquenciasRodrigo.add(frequenciaRodrigoDia1);
-		frenquenciasRodrigo.add(frequenciaRodrigoDia2);
-		
-		alunoRodrigo.setFrequencias(frenquenciasRodrigo);
-		
-		// Nota
-		Nota nota1Rodrigo = new Nota();
-		nota1Rodrigo.setNota(10);
-		Nota nota2Rodrigo = new Nota();
-		nota2Rodrigo.setNota(5);
-		
-		Set<Nota> notasRodrigo = new HashSet<Nota>();
-		notasRodrigo.add(nota1Rodrigo);
-		notasRodrigo.add(nota2Rodrigo);
-		
-		alunoRodrigo.setNotas(notasRodrigo);
 		
 	}
 	
@@ -265,54 +233,4 @@ public class AlunoDestaqueTest {
 		assertFalse(alunoDestaque.alunoEhDestaque(alunoRafael));
 	}
 
-	
-	@Test
-	public void testeUnitarioListarTodosAlunosDestaques() {
-		
-		
-		FrequenciaService frequenciaService = mock(FrequenciaService.class);
-		when(frequenciaService.retornaMediaFrequencia()).thenReturn(42D);
-		
-		NotaService notaService = mock(NotaService.class);
-		when(notaService.retornaMediaNotas()).thenReturn(6.30D);
-		
-		List<Aluno> listaAlunos = new ArrayList<Aluno>();
-		listaAlunos.add(alunoRafael); // Não eh Destaque
-		listaAlunos.add(alunoRodrigo); // Não eh Destaque
-		//listaAlunos.add(alunoRafael);
-		
-		AlunoService alunoService = mock(AlunoService.class);
-		when(alunoService.retornaTodosAlunos()).thenReturn(listaAlunos);
-		
-		AlunoDestaque alunoDestaque = new AlunoDestaque();
-		alunoDestaque.setAlunoService(alunoService);
-		alunoDestaque.setFrequenciaService(frequenciaService);
-		alunoDestaque.setNotaService(notaService);
-		
-		List<Aluno> alunosDestaques = alunoDestaque.retornaAlunosDestaques();
-		
-		assertEquals(0, alunosDestaques.size());
-		
-	}
-	
-	
-	@Test
-	public void testeIntegracaoListarTodosAlunosDestaques() {
-		
-		
-		FrequenciaService frequenciaService = new FrequenciaService();
-		NotaService notaService = new NotaService();
-		AlunoService alunoService = new AlunoService();
-		
-		
-		AlunoDestaque alunoDestaque = new AlunoDestaque();
-		alunoDestaque.setAlunoService(alunoService);
-		alunoDestaque.setFrequenciaService(frequenciaService);
-		alunoDestaque.setNotaService(notaService);
-		
-		List<Aluno> alunosDestaques = alunoDestaque.retornaAlunosDestaques();
-		
-		assertEquals(0, alunosDestaques.size());
-		
-	}
 }

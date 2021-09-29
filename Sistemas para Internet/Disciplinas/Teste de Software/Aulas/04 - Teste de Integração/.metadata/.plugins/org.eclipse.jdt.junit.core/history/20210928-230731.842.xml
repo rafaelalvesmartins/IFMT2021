@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AlunoDestaqueTest" project="ControleAlunos" tests="4" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="test.edu.br.ifmt.qacademico.AlunoDestaqueTest" incomplete="true">
+    <testcase name="testeUnidadeMockado" classname="test.edu.br.ifmt.qacademico.AlunoDestaqueTest" incomplete="true"/>
+    <testcase name="testeUnitarioListarTodosAlunosDestaques" classname="test.edu.br.ifmt.qacademico.AlunoDestaqueTest" incomplete="true"/>
+    <testcase name="testeIntegracao" classname="test.edu.br.ifmt.qacademico.AlunoDestaqueTest" incomplete="true"/>
+    <testcase name="testeIntegracaoListarTodosAlunosDestaques" classname="test.edu.br.ifmt.qacademico.AlunoDestaqueTest" incomplete="true"/>
+  </testsuite>
+</testrun>
