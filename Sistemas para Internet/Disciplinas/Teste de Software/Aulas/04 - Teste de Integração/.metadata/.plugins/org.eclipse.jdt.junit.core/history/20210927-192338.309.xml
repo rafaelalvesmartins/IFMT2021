@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="AlunoDestaqueTest" project="ControleAlunos" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="test.edu.br.ifmt.qacademico.AlunoDestaqueTest" time="0.669">
-    <testcase name="testeUnidadeMockado" classname="test.edu.br.ifmt.qacademico.AlunoDestaqueTest" time="0.667"/>
-    <testcase name="testeUnitario" classname="test.edu.br.ifmt.qacademico.AlunoDestaqueTest" time="0.002"/>
-  </testsuite>
-</testrun>

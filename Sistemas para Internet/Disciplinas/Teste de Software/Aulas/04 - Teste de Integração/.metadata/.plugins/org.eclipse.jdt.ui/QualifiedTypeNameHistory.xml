@@ -14,7 +14,6 @@
     <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
     <fullyQualifiedTypeName name="edu.br.ifmt.model.Frequencia"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="edu.br.ifmt.model.Nota"/>
     <fullyQualifiedTypeName name="org.hibernate.Session"/>
     <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
@@ -27,18 +26,20 @@
     <fullyQualifiedTypeName name="edu.br.ifmt.model.service.AlunoService"/>
     <fullyQualifiedTypeName name="org.hibernate.mapping.Set"/>
     <fullyQualifiedTypeName name="edu.br.ifmt.model.dao.NotaDAO"/>
-    <fullyQualifiedTypeName name="main.edu.br.ifmt.model.service.FrequenciaService"/>
-    <fullyQualifiedTypeName name="main.edu.br.ifmt.model.service.NotaService"/>
-    <fullyQualifiedTypeName name="main.edu.br.ifmt.qacademico.AlunoDestaque"/>
     <fullyQualifiedTypeName name="org.junit.Ignore"/>
     <fullyQualifiedTypeName name="main.edu.br.ifmt.model.entity.Aluno"/>
-    <fullyQualifiedTypeName name="org.junit.Before"/>
     <fullyQualifiedTypeName name="main.edu.br.ifmt.model.entity.Frequencia"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="main.edu.br.ifmt.model.entity.Nota"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
-    <fullyQualifiedTypeName name="main.edu.br.ifmt.model.service.AlunoService"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="antlr.collections.List"/>
+    <fullyQualifiedTypeName name="org.mockito.Mockito"/>
+    <fullyQualifiedTypeName name="org.junit.Before"/>
+    <fullyQualifiedTypeName name="main.edu.br.ifmt.model.service.NotaService"/>
+    <fullyQualifiedTypeName name="main.edu.br.ifmt.qacademico.AlunoDestaque"/>
+    <fullyQualifiedTypeName name="main.edu.br.ifmt.model.service.FrequenciaService"/>
+    <fullyQualifiedTypeName name="main.edu.br.ifmt.model.service.AlunoService"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
