@@ -1,6 +1,6 @@
--- Modelagem Física
+-- Modelagem Física 
 
--- Criar DB
+-- Criar DB - DDL 
 drop database if exists seguradora;
 create database seguradora;
 use seguradora;
