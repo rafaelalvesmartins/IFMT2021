@@ -10,11 +10,11 @@ public class TesteCalculadora {
 	
 	@Test
 	void testeUnitarioSoma() {
-		
+	
 		Calculadora calculadora = new Calculadora();
 		assertEquals(10, calculadora.soma(4,6),0.0001);
 		
-	;}
+	}
 	
 	
 	@Test
@@ -22,7 +22,7 @@ public class TesteCalculadora {
 		
 		Calculadora calculadora = new Calculadora();
 		assertEquals(10, calculadora.divisao(100,10),0.0001);
-		assertEquals(10, calculadora.divisao(100,2),0.0001);
+		assertEquals(50, calculadora.divisao(100,2),0.0001);
 		
 	;}
 
