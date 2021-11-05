@@ -7,12 +7,13 @@ use seguradora;
 
 -- Criação das tabelas
 create table clientes(
-    id integer not null auto_increment primary key,
+    id integer not null auto_increment,
     nome varchar(64) not null,
     conjuge varchar(64),
     created_at datetime not null,
     updated_at datetime not null,
-    constraint unique_nome unique (nome)
+    constraint unique_nome unique (nome),
+	constraint pk_clientes PRIMARY KEY (id)
 );
 
 create table apolices(
